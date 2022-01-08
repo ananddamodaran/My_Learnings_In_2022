@@ -1,5 +1,5 @@
 import 'package:chopper/chopper.dart';
-import 'package:flutter_playground/news/api/model/news_response.dart';
+import 'package:flutter_playground/news/data/model/news_response.dart';
 
 import 'model_convertor.dart';
 
