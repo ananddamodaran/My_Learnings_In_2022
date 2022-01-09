@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logging/logging.dart';
 
-import 'news/app.dart';
+import 'news/ui/route/app_route.dart';
+import 'news/ui/theme/app_theme.dart';
 
 final log = Logger("NewsApp");
 void main() {
   _setupLogging();
-  runApp(const NewsApp());
+  //runApp(const NewsApp());
+  runApp(const ProviderScope(child: App()));
 }
 
 void _setupLogging() {
@@ -14,6 +18,26 @@ void _setupLogging() {
   Logger.root.onRecord.listen((rec) {
     print('${rec.level.name}: ${rec.time}: ${rec.message}');
   });
+}
+
+class App extends HookConsumerWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+    final themeMode = ref.watch(appThemeModeProvider);
+    final appRouter = useMemoized(() => AppRouter());
+    return MaterialApp.router(
+      theme: theme.data,
+      darkTheme: AppTheme.dark().data,
+      themeMode: themeMode,
+      // localizationsDelegates: L10n.localizationsDelegates,
+      //supportedLocales: L10n.supportedLocales,
+      routeInformationParser: appRouter.defaultRouteParser(),
+      routerDelegate: appRouter.delegate(),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {

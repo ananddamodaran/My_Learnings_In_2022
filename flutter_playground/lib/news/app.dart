@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/news/ui/NewsBusinessPage.dart';
+import 'package:flutter_playground/news/ui/business/business_page.dart';
 import 'package:provider/provider.dart';
 
 import 'api/service/news_service.dart';
@@ -17,7 +17,7 @@ class NewsApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const BusinessNews(title: 'Business'),
+          home: BusinessPage(),
         ));
   }
 }

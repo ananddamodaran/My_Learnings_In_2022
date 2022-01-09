@@ -6,6 +6,7 @@ import 'package:flutter_playground/news/ui/component/loading/container_with_load
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../loading_state_view_model.dart';
+import 'article_item.dart';
 import 'news_view_model.dart';
 
 class BusinessPage extends HookConsumerWidget {
@@ -25,7 +26,7 @@ class BusinessPage extends HookConsumerWidget {
           ? const SizedBox()
           : news.when(success: (data) {
               if (data.articles.isEmpty) {
-                return Center(child: Text(l10n.noResult));
+                return const Center(child: Text('No Result'));
               }
               return RefreshIndicator(
                 onRefresh: () async => homeViewModel.fetchNews(),
@@ -37,7 +38,7 @@ class BusinessPage extends HookConsumerWidget {
                 ),
               );
             }, failure: (e) {
-              return Center(child: Text(l10n.fetchFailed));
+              return const Center(child: Text('Fetch Failed'));
             }),
     );
   }

@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/news/data/model/news_response.dart';
+import 'package:flutter_playground/news/ui/hook/use_router.dart';
 import 'package:flutter_playground/news/ui/route/app_route.gr.dart';
+import 'package:flutter_playground/news/ui/theme/app_text_theme.dart';
+import 'package:flutter_playground/news/ui/theme/app_theme.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ArticleItem extends HookConsumerWidget {
@@ -9,7 +13,7 @@ class ArticleItem extends HookConsumerWidget {
     required this.article,
   }) : super(key: key);
 
-  final Article article;
+  final Articles article;
 
   static BorderRadius borderRadiusAll = BorderRadius.circular(8);
   static BorderRadius borderRadiusTop = const BorderRadius.only(
@@ -23,7 +27,6 @@ class ArticleItem extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(appThemeProvider);
     final router = useRouter();
-    final l10n = useL10n();
     return Card(
       shape: RoundedRectangleBorder(borderRadius: borderRadiusAll),
       elevation: 4,
@@ -36,15 +39,19 @@ class ArticleItem extends HookConsumerWidget {
                 width: double.infinity,
                 height: 200,
                 child: ClipRRect(
-                  borderRadius: borderRadiusTop,
-                  child: networkImage(article.urlToImage, fit: BoxFit.cover),
-                ),
+                    borderRadius: borderRadiusTop,
+                    child: Image.network(
+                      article.urlToImage,
+                      fit: BoxFit.fill,
+                      errorBuilder: (context, url, dynamic error) =>
+                          const CircularProgressIndicator(),
+                    )),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8),
               child: Text(
-                article.title ?? l10n.noTitle,
+                article.title,
                 style: theme.textTheme.h20.dense(),
               ),
             ),

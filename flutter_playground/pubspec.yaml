@@ -33,6 +33,8 @@ dependencies:
   # For DateTime
   intl: ^0.17.0
 
+  # For UIs
+  google_fonts: ^2.2.0
   cupertino_icons: ^1.0.4
 
 
