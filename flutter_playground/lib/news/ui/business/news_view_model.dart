@@ -22,7 +22,7 @@ class NewsViewModel extends ChangeNotifier {
 
   Future<void> fetchNews() {
     return _repository
-        .getNews()
+        .getBusinessNews()
         .then((value) => _news = value)
         .whenComplete(notifyListeners);
   }

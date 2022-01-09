@@ -22,7 +22,7 @@ abstract class NewsDataSource {
     @Query("apiKey") required String apiKey,
   });
 
-  @GET('top-headlines')
+  @GET('/top-headlines')
   Future<NewsResponse> getBusinessNews({
     @Query("country") String country = "in",
     @Query("category") String category = "business",

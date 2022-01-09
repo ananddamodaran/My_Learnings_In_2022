@@ -9,7 +9,7 @@ final dioProvider = Provider((_) => AppDio.getInstance());
 class AppDio with DioMixin implements Dio {
   AppDio._([BaseOptions? options]) {
     options = BaseOptions(
-      baseUrl: '',
+      baseUrl: 'https://newsapi.org/v2/',
       contentType: 'application/json',
       connectTimeout: 30000,
       sendTimeout: 30000,

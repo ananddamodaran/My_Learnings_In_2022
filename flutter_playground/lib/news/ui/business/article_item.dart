@@ -44,7 +44,7 @@ class ArticleItem extends HookConsumerWidget {
                       article.urlToImage,
                       fit: BoxFit.fill,
                       errorBuilder: (context, url, dynamic error) =>
-                          const CircularProgressIndicator(),
+                          const Center(child: CircularProgressIndicator()),
                     )),
               ),
             ),
