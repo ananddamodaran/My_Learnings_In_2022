@@ -23,8 +23,10 @@ class _$MyAppRouters extends RootStackRouter {
           routeData: routeData, child: const HomePage());
     },
     SecondRoute.name: (routeData) {
+      final args = routeData.argsAs<SecondRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const SecondPage());
+          routeData: routeData,
+          child: SecondPage(key: args.key, value: args.value));
     }
   };
 
@@ -45,8 +47,24 @@ class HomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [SecondPage]
-class SecondRoute extends PageRouteInfo<void> {
-  const SecondRoute() : super(SecondRoute.name, path: '/second-page');
+class SecondRoute extends PageRouteInfo<SecondRouteArgs> {
+  SecondRoute({Key? key, required int value})
+      : super(SecondRoute.name,
+            path: '/second-page',
+            args: SecondRouteArgs(key: key, value: value));
 
   static const String name = 'SecondRoute';
+}
+
+class SecondRouteArgs {
+  const SecondRouteArgs({this.key, required this.value});
+
+  final Key? key;
+
+  final int value;
+
+  @override
+  String toString() {
+    return 'SecondRouteArgs{key: $key, value: $value}';
+  }
 }
