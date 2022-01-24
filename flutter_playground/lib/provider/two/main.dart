@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-            Text('name: ${Provider.of<Dog>(context, listen: false).name}'),
+            Text('name: ${context.watch<Dog>().name}'),
             const SizedBox(height: 20),
             BreedAndAge()
           ])),
@@ -45,7 +45,7 @@ class BreedAndAge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
-      Text('breed : ${Provider.of<Dog>(context, listen: false).breed}'),
+      Text('breed : ${context.select<Dog, String>((Dog dog) => dog.breed)}'),
       const SizedBox(height: 20),
       const Age()
     ]);
@@ -58,12 +58,15 @@ class Age extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
-      Text('age: ${Provider.of<Dog>(context).age}'),
+      //Text('age: ${Provider.of<Dog>(context).age}'),
+      Text('age: ${context.select<Dog, int>((Dog dog) => dog.age)}'),
       const SizedBox(
         height: 20,
       ),
       ElevatedButton(
-        onPressed: () => Provider.of<Dog>(context, listen: false).grow(),
+        onPressed: () =>
+            //Provider.of<Dog>(context, listen: false).grow(),
+            context.read<Dog>().grow(),
         child: const Text('Grow'),
       )
     ]);
