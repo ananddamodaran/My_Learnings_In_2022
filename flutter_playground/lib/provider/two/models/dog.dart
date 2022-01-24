@@ -5,7 +5,7 @@ class Dog with ChangeNotifier {
   final String breed;
   int age;
 
-  Dog({required this.name, required this.breed, this.age = 1});
+  Dog({required this.name, required this.breed, this.age = 3});
 
   grow() {
     age++;
