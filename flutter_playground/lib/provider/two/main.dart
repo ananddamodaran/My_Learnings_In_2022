@@ -48,8 +48,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Dog App')),
-      body: Consumer<Dog>(
-        builder: (BuildContext context, Dog dog, Widget? child) {
+      body: Selector<Dog, String>(
+        selector: (BuildContext context, Dog dog) => dog.name,
+        builder: (BuildContext context, String name, Widget? child) {
           print('I like dogs very much');
           return Center(
               child: Column(
@@ -58,7 +59,7 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[
                 child!,
                 const SizedBox(height: 20),
-                Text('name: ${dog.name}'),
+                Text('name: $name'),
                 const SizedBox(height: 20),
                 BreedAndAge()
               ]));
@@ -72,13 +73,15 @@ class HomePage extends StatelessWidget {
 class BreedAndAge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer<Dog>(builder: (_, Dog dog, __) {
-      return Column(children: <Widget>[
-        Text('breed : ${dog.breed}'),
-        const SizedBox(height: 20),
-        const Age()
-      ]);
-    });
+    return Selector<Dog, String>(
+        selector: (BuildContext context, Dog dog) => dog.breed,
+        builder: (_, String breed, __) {
+          return Column(children: <Widget>[
+            Text('breed : $breed'),
+            const SizedBox(height: 20),
+            const Age()
+          ]);
+        });
   }
 }
 
@@ -87,25 +90,27 @@ class Age extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<Dog>(builder: (_, Dog dog, __) {
-      return Column(children: <Widget>[
-        Text('age: ${dog.age}'),
-        const SizedBox(
-          height: 20,
-        ),
-        Text('babies: ${context.read<int>()}'),
-        const SizedBox(
-          height: 20,
-        ),
-        Text('Bark: ${context.watch<String>()}'),
-        const SizedBox(
-          height: 20,
-        ),
-        ElevatedButton(
-          onPressed: () => dog.grow(),
-          child: const Text('Grow'),
-        )
-      ]);
-    });
+    return Selector<Dog, int>(
+        selector: (BuildContext context, Dog dog) => dog.age,
+        builder: (_, int age, __) {
+          return Column(children: <Widget>[
+            Text('age: $age'),
+            const SizedBox(
+              height: 20,
+            ),
+            Text('babies: ${context.read<int>()}'),
+            const SizedBox(
+              height: 20,
+            ),
+            Text('Bark: ${context.watch<String>()}'),
+            const SizedBox(
+              height: 20,
+            ),
+            ElevatedButton(
+              onPressed: () => context.read<Dog>().grow(),
+              child: const Text('Grow'),
+            )
+          ]);
+        });
   }
 }
