@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">android_playground</string>
+    <string name="title_activity_on_board">OnBoardActivity</string>
 </resources>

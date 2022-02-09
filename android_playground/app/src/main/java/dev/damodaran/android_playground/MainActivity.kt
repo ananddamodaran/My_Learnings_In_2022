@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun MyApp() {
+fun MyApp() {
 
        // Greeting("Android")
         val names: List<String> = listOf("World,", "Compose")

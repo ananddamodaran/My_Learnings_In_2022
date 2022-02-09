@@ -10,15 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_playground">
         <activity
-            android:name=".MainActivity"
+            android:name=".OnBoardActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Android_playground.NoActionBar">
+            android:label="@string/title_activity_on_board"
+            android:theme="@style/Theme.Android_playground">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Android_playground.NoActionBar">
         </activity>
     </application>
 
