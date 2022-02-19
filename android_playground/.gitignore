@@ -15,3 +15,6 @@
 local.properties
 app/android_playground.jks
 .env
+app/release
+.tool-versions
+

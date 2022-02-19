@@ -1,10 +1,13 @@
-default_platform(:android)
+update_fastlane
 app_id=ENV["app_id"]
 firebase_cli=ENV["firebase_cli"]
+
+default_platform(:android)
+
 platform :android do
- before_all do
+  before_all do
     ENV["SLACK_URL"]
- end
+  end
   desc "Runs all the tests"
   lane :test do
     gradle(task: "test")
@@ -13,13 +16,19 @@ platform :android do
   desc "Submit a new Beta Build to Crashlytics Beta"
   lane :beta do
     gradle(task: "clean bundleRelease")
-   # crashlytics
   end
 
   desc "Deploy a new version to the Google Play"
   lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
+    gradle(task: "clean bundleRelease")
+  download_link =  upload_to_play_store_internal_app_sharing
+  slack(
+     message: "App successfully uploaded to Playstore - Internal.",
+     attachment_properties: {
+        title: "Download Build",
+        title_link: download_link
+     }
+  )
   end
 
   desc "Lane for distributing app using Firebase App Distributions"
@@ -32,15 +41,15 @@ platform :android do
     release_notes_file: "FirebaseAppDistributionConfig/release_notes.txt",
     groups_file: "FirebaseAppDistributionConfig/groups.txt"
     )
+   end
+  after_all do |lane|
+    clean_build_artifacts
+    #slack(
+     # message: "App was successfully released!",
+      #success: true,
+      #default_payloads: [:lane, :test_result, :git_branch, :git_author]
+    #)
   end
- after_all do |lane|
-  clean_build_artifacts
-  slack(
-    message: "App was successfully released!",
-    success: true,
-    default_payloads: [:lane, :test_result, :git_branch, :git_author]
-  )
- end
   private_lane :increment_version do
   latest_release = firebase_app_distribution_get_latest_release(
     app: "#{app_id}",
@@ -48,11 +57,16 @@ platform :android do
 
   )
   increment_version_code({ version_code: latest_release[:buildVersion].to_i + 1 })
-end
-error do
+  end
+ error do
   slack(
     message: "An error occured while deploying app #{app_id}",
     success: false
   )
-end
+ end
+   desc "Deploy a new version to the Google Play"
+   lane :playstore do
+      gradle(task: 'assemble',build_type: 'Release')
+         upload_to_play_store
+   end
 end

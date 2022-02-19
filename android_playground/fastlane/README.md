@@ -47,6 +47,14 @@ Deploy a new version to the Google Play
 
 Lane for distributing app using Firebase App Distributions
 
+### android playstore
+
+```sh
+[bundle exec] fastlane android playstore
+```
+
+Deploy a new version to the Google Play
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
