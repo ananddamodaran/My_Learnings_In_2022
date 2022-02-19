@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "31002423131",
+    "project_id": "android-playground-1901",
+    "storage_bucket": "android-playground-1901.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31002423131:android:84470ee292fb858c78747e",
+        "android_client_info": {
+          "package_name": "dev.damodaran.android_playground"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31002423131-nf3d7d5p9rb07aip79ra5caj1krmoh52.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXA7CuVP2pKgdpCfCNxmcqX4Ek6xWBz84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31002423131-nf3d7d5p9rb07aip79ra5caj1krmoh52.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

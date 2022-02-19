@@ -1,0 +1,3 @@
+Initial release
+In this build:
+* enabling minifyEnabled=true
