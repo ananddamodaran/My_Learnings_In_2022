@@ -38,16 +38,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp() {
 
-    // Greeting("Android")
     val names: List<String> = listOf("World,", "Compose")
     Greetings()
-    /* Column(modifier = Modifier.padding(vertical = 14.dp)) {
-         for (name in names) {
-             Greeting(name = name)
-         }
-     }*/
-
-
 }
 
 @Composable

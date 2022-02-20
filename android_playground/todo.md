@@ -1,0 +1,7 @@
+- MVVM
+- Coroutines
+- Flow
+- Jetpack Navigation
+- Kotlin Multi platform
+- Apps UX in compose
+- Internal testing
