@@ -11,7 +11,7 @@ android {
         applicationId "dev.damodaran.android_playground"
         minSdk 21
         targetSdk 32
-        versionCode 11
+        versionCode 13
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -20,13 +20,13 @@ android {
         }
     }
     signingConfigs {
-       release {
-           storeFile file("android_playground.jks")
-           storePassword "android"
-           keyAlias "android_keystore"
-           keyPassword "android"
-       }
-   }
+        release {
+            storeFile file(String.valueOf(System.getenv("KEYSTORE_FILE_PATH")))
+            storePassword System.getenv("KEYSTORE_PASSWORD")
+            keyAlias System.getenv("KEY_ALIAS")
+            keyPassword System.getenv("KEY_PASSWORD")
+        }
+    }
     buildTypes {
         release {
             minifyEnabled true

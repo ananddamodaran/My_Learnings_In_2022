@@ -5,42 +5,42 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="0.421113695">
+      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="0.940477688">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000225658">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000401673">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to android increment_version lane" time="0.000230172">
+      <testcase classname="fastlane.lanes" name="2: Switch to android increment_version lane" time="0.00043916">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: firebase_app_distribution_get_latest_release" time="1.547915622">
+      <testcase classname="fastlane.lanes" name="3: firebase_app_distribution_get_latest_release" time="1.744369741">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: increment_version_code" time="0.017762858">
+      <testcase classname="fastlane.lanes" name="4: increment_version_code" time="0.016717336">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: clean assembleRelease" time="53.052175861">
+      <testcase classname="fastlane.lanes" name="5: clean assembleRelease" time="230.39503206">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: firebase_app_distribution" time="14.038321679">
+      <testcase classname="fastlane.lanes" name="6: firebase_app_distribution" time="13.425471597">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="7: clean_build_artifacts" time="0.001111159">
+      <testcase classname="fastlane.lanes" name="7: clean_build_artifacts" time="0.001443828">
         
       </testcase>
     

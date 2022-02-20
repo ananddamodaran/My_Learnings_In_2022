@@ -54,7 +54,7 @@ private fun Greetings(names: List<String> = List(1000) { "$it" }) {
 @Composable
 fun Greeting(name: String) {
     //Text(text = "Hello, $name!", modifier = Modifier.padding(24.dp))
-     var expanded by remember { mutableStateOf(false) }
+    var expanded by remember { mutableStateOf(false) }
 
     val extraPadding by animateDpAsState(
         if (expanded) 48.dp else 0.dp,
@@ -77,15 +77,17 @@ fun Greeting(name: String) {
 
             ) {
                 Text(text = "Hello,")
-                Text(text = name, style = MaterialTheme.typography.h4.copy(
-                        fontWeight = FontWeight.ExtraBold
-                    ))
-                 if (expanded) {
                 Text(
-                    text = ("Composem ipsum color sit lazy, " +
-                        "padding theme elit, sed do bouncy. ").repeat(4),
+                    text = name, style = MaterialTheme.typography.h4.copy(
+                        fontWeight = FontWeight.ExtraBold
+                    )
                 )
-            }
+                if (expanded) {
+                    Text(
+                        text = ("Composem ipsum color sit lazy, " +
+                                "padding theme elit, sed do bouncy. ").repeat(4),
+                    )
+                }
             }
             OutlinedButton(
                 onClick = { expanded = !expanded }

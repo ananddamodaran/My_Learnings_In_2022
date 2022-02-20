@@ -23,7 +23,7 @@ class OnBoardActivity : ComponentActivity() {
                 var shouldShowOnboarding by remember { mutableStateOf(true) }
 
                 if (shouldShowOnboarding) { // Where does this come from?
-                    OnboardingScreen(onContinueClicked={
+                    OnboardingScreen(onContinueClicked = {
 
                         shouldShowOnboarding = !shouldShowOnboarding
 
@@ -33,11 +33,11 @@ class OnBoardActivity : ComponentActivity() {
                 }
 
 
-
             }
         }
     }
 }
+
 @Composable
 fun OnboardingScreen(onContinueClicked: () -> Unit) {
 
@@ -64,20 +64,26 @@ fun OnboardingScreen(onContinueClicked: () -> Unit) {
 @Composable
 fun Gr3eeting(name: String) {
     //Text(text = "Hello, $name!", modifier = Modifier.padding(24.dp))
-    var expanded = remember { mutableStateOf(false)}//
+    var expanded = remember { mutableStateOf(false) }//
     val extraPadding = if (expanded.value) 48.dp else 0.dp
-    Surface(color = MaterialTheme.colors.primary,
-        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp
-        ) ){
+    Surface(
+        color = MaterialTheme.colors.primary,
+        modifier = Modifier.padding(
+            vertical = 4.dp, horizontal = 8.dp
+        )
+    ) {
         Row(modifier = Modifier.padding(24.dp)) {
-            Column(modifier = Modifier.weight(1f).padding(bottom = extraPadding)
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding)
 
             ) {
                 Text(text = "Hello,")
                 Text(text = name)
             }
             OutlinedButton(
-                onClick = {  expanded.value = !expanded.value }
+                onClick = { expanded.value = !expanded.value }
             ) {
                 Text(if (expanded.value) "Show less" else "Show more")
             }
@@ -90,11 +96,11 @@ fun Gr3eeting(name: String) {
 }
 
 
-@Preview(showBackground = true,widthDp = 320, heightDp = 320)
+@Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
 fun DefaultPreview2() {
     Android_playgroundTheme {
-        OnboardingScreen(onContinueClicked={}) // Do nothing on click.
+        OnboardingScreen(onContinueClicked = {}) // Do nothing on click.
 
     }
 }
