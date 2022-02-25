@@ -17,4 +17,5 @@ app/android_playground.jks
 .env
 app/release
 .tool-versions
-
+buildSrc/build
+**/fastlane/report.xml
