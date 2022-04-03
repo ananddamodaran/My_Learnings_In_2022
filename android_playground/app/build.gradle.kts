@@ -1,5 +1,5 @@
 import dev.damodaran.app.build.configs.Versions
-import dev.damodaran.app.build.dependencies.Dependencies
+import dev.damodaran.app.build.dependencies.deps
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -58,8 +58,8 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation (Dependencies.libAppCompat)
+    implementation(deps.androidx.corektx)
+    implementation (deps.androidx.appcompat)
     implementation ("com.google.android.material:material:1.5.0")
     implementation ("androidx.compose.ui:ui:${Versions.COMPOSE}")
     implementation ("androidx.compose.material:material:${Versions.COMPOSE}")

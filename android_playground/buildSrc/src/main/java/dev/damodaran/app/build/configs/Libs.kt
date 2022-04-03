@@ -2,6 +2,7 @@ package dev.damodaran.app.build.configs
 
 object Libs {
     const val APPCOMPAT = "androidx.appcompat:appcompat"
+
     const val ACTIVITY_KTX = "androidx.activity:activity-ktx"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout"
     const val CORE_KTX = "androidx.core:core-ktx"

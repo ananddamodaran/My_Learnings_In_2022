@@ -29,8 +29,8 @@ class HomeActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
+        //MyHomeScreen()
             Android_playgroundTheme {
-                //MyHomeScreen()
                 Conversation(SampleData.conversationSample)
             }
         }
