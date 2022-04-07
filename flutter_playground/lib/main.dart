@@ -3,13 +3,14 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:logging/logging.dart';
 
+import 'card_game/smbf_card_game.dart';
 import 'news/ui/route/app_route.dart';
 import 'news/ui/theme/app_theme.dart';
 
 final log = Logger("NewsApp");
 void main() {
   _setupLogging();
-  runApp(const ProviderScope(child: App()));
+  runApp(const MyApp());
 }
 
 void _setupLogging() {
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SMBFCard(),
     );
   }
 }
