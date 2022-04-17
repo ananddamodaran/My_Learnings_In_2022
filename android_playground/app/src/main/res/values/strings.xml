@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">android_playground</string>
     <string name="title_activity_on_board">OnBoardActivity</string>
+    <string name="title_activity_tic_tactivity">TicTactivity</string>
 </resources>
