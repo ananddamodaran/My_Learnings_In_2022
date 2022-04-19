@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  equatable: ^2.0.3
   # For Networking
   dio: ^4.0.4
   retrofit: ^3.0.1
@@ -19,7 +20,7 @@ dependencies:
   # For Architecture
   flutter_hooks: ^0.18.2
   hooks_riverpod: ^1.0.3
-
+  flutter_bloc: ^8.0.1
   chopper: ^4.0.4
   provider: ^6.0.2
   logging: ^1.0.2
