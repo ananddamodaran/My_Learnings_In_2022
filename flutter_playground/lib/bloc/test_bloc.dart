@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_playground/bloc/blocs/counter_bloc.dart';
+import 'package:flutter_playground/bloc/blocs/counter_bloc_home.dart';
 import 'package:flutter_playground/bloc/cubits/counter_cubit.dart';
 import 'package:flutter_playground/bloc/cubits/counter_state.dart';
 import 'package:flutter_playground/bloc/error_page.dart';
@@ -13,20 +15,20 @@ class CounterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CounterCubit>(
-      create: (context) => CounterCubit(),
+    return BlocProvider<CounterBloc>(
+      create: (context) => CounterBloc(),
       child: MaterialApp(
         title: 'Counter App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const CounterHome(),
+        home: const CounterBlocHome(),
       ),
     );
   }
 }
 
-class CounterHome extends StatelessWidget {
-  const CounterHome({Key? key}) : super(key: key);
+class CounterCubitHome extends StatelessWidget {
+  const CounterCubitHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
