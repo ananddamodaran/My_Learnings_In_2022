@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_playground/bloc/blocs/counter_bloc.dart';
-import 'package:flutter_playground/bloc/blocs/counter_bloc_home.dart';
 import 'package:flutter_playground/bloc/cubits/counter_cubit.dart';
 import 'package:flutter_playground/bloc/cubits/counter_state.dart';
 import 'package:flutter_playground/bloc/error_page.dart';
-import 'package:flutter_playground/bloc/random.dart';
+import 'package:flutter_playground/bloc/theme/bloc/theme_bloc.dart';
+import 'package:flutter_playground/bloc/theme/bloc/theme_state.dart';
+import 'package:flutter_playground/bloc/theme/cubit/theme_cubit.dart';
+import 'package:flutter_playground/bloc/theme/random.dart';
 
 void main() {
   runApp(const CounterApp());
@@ -16,13 +17,19 @@ class CounterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CounterBloc>(
-      create: (context) => CounterBloc(),
-      child: MaterialApp(
-        title: 'Counter App',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.blue),
-        home: const RandomNumber(),
+    return BlocProvider<ThemeCubit>(
+      create: (context) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp(
+            title: 'Counter App',
+            debugShowCheckedModeBanner: false,
+            theme: state.appTheme == AppTheme.light
+                ? ThemeData.light()
+                : ThemeData.dark(),
+            home: const RandomNumber(),
+          );
+        },
       ),
     );
   }
