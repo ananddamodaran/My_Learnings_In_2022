@@ -1,5 +1,6 @@
 import dev.damodaran.app.build.configs.Versions
 import dev.damodaran.app.build.dependencies.Dependencies
+import java.util.Properties
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -21,19 +22,37 @@ android {
         }
     }
     signingConfigs {
-        create("release") {
-            storeFile = File(System.getenv("KEYSTORE_FILE_PATH"))
+        create("debugg") {
+            val properties = Properties().apply {
+                load(File("signing.properties").reader())
+            }
+            storeFile = File(properties.getProperty("storeFilePath"))
+            storePassword = properties.getProperty("storePassword")
+            keyPassword = properties.getProperty("keyPassword")
+            keyAlias = properties.getProperty("keyAlias")
+        }
+        /*create("release") {
+            val properties = Properties().apply {
+                load(File("signing.properties").reader())
+            }
+            storeFile = file(System.getenv("KEYSTORE_FILE_PATH"))
             storePassword = System.getenv("KEYSTORE_PASSWORD")
             keyAlias = System.getenv("KEY_ALIAS")
             keyPassword = System.getenv("KEY_PASSWORD")
-        }
+        }*/
     }
     buildTypes {
-        getByName("release") {
+       /* getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs.getByName("release")
+        }*/
+        getByName("debug") {
+            isMinifyEnabled = false
+            isShrinkResources = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("debugg")
         }
     }
     compileOptions {
