@@ -5,6 +5,7 @@ import 'package:flutter_playground/bloc/blocs/counter_bloc_home.dart';
 import 'package:flutter_playground/bloc/cubits/counter_cubit.dart';
 import 'package:flutter_playground/bloc/cubits/counter_state.dart';
 import 'package:flutter_playground/bloc/error_page.dart';
+import 'package:flutter_playground/bloc/random.dart';
 
 void main() {
   runApp(const CounterApp());
@@ -21,7 +22,7 @@ class CounterApp extends StatelessWidget {
         title: 'Counter App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const CounterBlocHome(),
+        home: const RandomNumber(),
       ),
     );
   }
