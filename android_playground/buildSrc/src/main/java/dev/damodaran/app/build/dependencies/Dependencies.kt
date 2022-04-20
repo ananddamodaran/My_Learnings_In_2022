@@ -1,14 +1,12 @@
 package dev.damodaran.app.build.dependencies
 
-import dev.damodaran.app.build.configs.Versions
 import dev.damodaran.app.build.configs.Libs
-
-object Dependencies {
-
+import dev.damodaran.app.build.configs.Versions
+object versions {
     const val appcompat = "1.3.1"
     val activity = "1.3.1"
     val constraintLayout = "2.0.4"
-    val core = "1.6.0"
+    val core = "1.7.0"
     val coroutines = "1.5.1"
     val espresso = "3.4.0"
     val glide = "4.12.0"
@@ -25,13 +23,17 @@ object Dependencies {
     val hiltLifecycleViewmodel = "1.0.0-alpha03"
     val compose = Versions.COMPOSE
     val activityCompose = "1.3.1"
-
-    const val libAppCompat = "${Libs.APPCOMPAT}:$appcompat"
+}
+object deps {
+    object androidx{
+        const val appcompat = "${Libs.APPCOMPAT}:${versions.appcompat}"
+        const val corektx = "${Libs.CORE_KTX}:${versions.appcompat}"
+    }
 /*
     api("${Libs.APPCOMPAT}:$appcompat")
     api("${Libs.ACTIVITY_KTX}:$activity")
     api("${Libs.CONSTRAINT_LAYOUT}:$constraintLayout")
-    api("${Libs.CORE_KTX}:$core")
+
     api("${Libs.COROUTINES}:$coroutines")
     api("${Libs.ESPRESSO_CORE}:$espresso")
     api("${Libs.JUNIT}:$junit")
