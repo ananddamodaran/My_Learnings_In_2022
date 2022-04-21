@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_playground/bloc/theme/cubit/theme_cubit.dart';
+import 'package:flutter_playground/bloc/theme_bloc/cubit/theme_cubit.dart';
 
 class RandomNumber extends StatelessWidget {
   const RandomNumber({Key? key}) : super(key: key);
