@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_playground/bloc/theme/bloc/theme_state.dart';
+import 'package:flutter_playground/bloc/theme_bloc/bloc/theme_state.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
   ThemeCubit() : super(ThemeState.initial());

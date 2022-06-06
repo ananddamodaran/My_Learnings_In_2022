@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_playground/bloc/cubit2cubit/cubit_cubit_stream.dart';
 import 'package:flutter_playground/bloc/cubits/counter_cubit.dart';
 import 'package:flutter_playground/bloc/cubits/counter_state.dart';
 import 'package:flutter_playground/bloc/error_page.dart';
-import 'package:flutter_playground/bloc/theme/bloc/theme_bloc.dart';
-import 'package:flutter_playground/bloc/theme/bloc/theme_state.dart';
-import 'package:flutter_playground/bloc/theme/cubit/theme_cubit.dart';
-import 'package:flutter_playground/bloc/theme/random.dart';
+import 'package:flutter_playground/bloc/theme_bloc/bloc/theme_state.dart';
+import 'package:flutter_playground/bloc/theme_bloc/cubit/theme_cubit.dart';
+import 'package:flutter_playground/bloc/theme_bloc/random.dart';
 
 void main() {
   runApp(const CounterApp());
@@ -27,7 +27,7 @@ class CounterApp extends StatelessWidget {
             theme: state.appTheme == AppTheme.light
                 ? ThemeData.light()
                 : ThemeData.dark(),
-            home: const RandomNumber(),
+            home: CubitStream(),
           );
         },
       ),
