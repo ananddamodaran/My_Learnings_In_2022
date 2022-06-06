@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Testcompose</string>
+    <string name="my_books_titlle">MyBooks</string>
+    <string name="add_book_title">Add Book</string>
+    <string name="book_title_hint">Book Title</string>
+    <string name="book_descrption_hint">Book Description</string>
+    <string name="add_book_btn_txt">Add book</string>
+</resources>
